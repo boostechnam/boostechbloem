@@ -23,11 +23,24 @@ The configuration deploys only `dist/`. The original Sites publication is
 unchanged until separately published there. Its project metadata stays in the
 original source checkout and is not included in the GitHub export.
 
-## Content still awaiting branch details
+## Articles and branch contacts
 
-The existing design, logos and copy are preserved. The contact section and footer
-still state that branch details are pending. Add Pieter's confirmed contact and
-booking details when supplied; they have not been invented during migration.
+The article hub is `/news-advice/`, with 11 complete articles adapted from the
+Namibia and Western Cape sites. Header navigation and homepage cards link to it.
+Contact links use Pieter's Bloemfontein details: `boostechbfn@gmail.com` and
+`+27 73 972 7708`.
+
+To update article text, edit `content/articles.json` and run:
+
+```sh
+python scripts/build_articles.py
+```
+
+Commit the source data, generator and generated `dist/` files together. Cloudflare
+continues deploying the static `dist/` folder without requiring Python at build time.
+Photographs, vehicle logos and videos reuse media hosted on the existing Boostech
+Namibia and Western Cape domains; maintain those shared media URLs when moving files.
+Network customer stories and Australian builds retain their original context.
 
 ## References
 
