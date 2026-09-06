@@ -50,3 +50,10 @@ Network customer stories and Australian builds retain their original context.
 - https://developers.cloudflare.com/workers/static-assets/get-started/
 - https://developers.cloudflare.com/workers/ci-cd/builds/configuration/
 - https://developers.cloudflare.com/workers/configuration/routing/custom-domains/
+
+## ECU tuning page
+
+The workshop ECU tuning page is `/ecu-remapping/`. Edit `content/ecu-page.html` and
+`scripts/build_ecu.py`, then run `python3 scripts/build_ecu.py`. It reuses the
+homepage navigation and vehicle enquiry form. Workshop photos with blurred
+registration plates are served locally from `dist/assets/ecu/`.
