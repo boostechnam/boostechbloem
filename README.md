@@ -28,7 +28,9 @@ original source checkout and is not included in the GitHub export.
 The article hub is `/news-advice/`, with 11 complete articles adapted from the
 Namibia and Western Cape sites. Header navigation and homepage cards link to it.
 Enquiries use a required vehicle form with a free-text location. Visitors choose
-WhatsApp or their email app, review the prepared message, and send it themselves.
+WhatsApp, Gmail in a browser, or their configured email app, review the prepared
+message, and send it themselves. The email button reveals explicit options so
+visitors without a configured mail app can use Gmail. No email is sent by the site.
 Branch phone numbers and email addresses are not displayed on the pages.
 
 To update article text, edit `content/articles.json` and run:

@@ -3,6 +3,16 @@
   const form = document.getElementById('bloem-enquiry');
   if (!form) return;
   const status = document.getElementById('enquiry-status');
+  const emailOptions = document.getElementById('enquiry-email-options');
+  const emailHeading = document.getElementById('enquiry-email-heading');
+  const gmailLink = document.getElementById('enquiry-gmail-link');
+  const appLink = document.getElementById('enquiry-app-link');
+  form.addEventListener('input', () => {
+    emailOptions.hidden = true;
+    gmailLink.removeAttribute('href');
+    appLink.removeAttribute('href');
+    status.textContent = '';
+  });
   const destination = {
     whatsapp: ['27', '73', '972', '7708'].join(''),
     email: ['boostech', 'bfn', '@', 'gmail', '.', 'com'].join('')
@@ -33,9 +43,13 @@
     const channel = event.submitter?.value || 'whatsapp';
     if (channel === 'email') {
       const subject = 'Boostech Bloemfontein enquiry: ' + value('make') + ' ' + value('model');
-      status.textContent = 'Your email app will open a draft. Review it and send it there.';
-      window.location.assign('mailto:' + destination.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message));
+      gmailLink.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(destination.email) + '&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message);
+      appLink.href = 'mailto:' + destination.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message);
+      emailOptions.hidden = false;
+      status.textContent = 'Your enquiry is ready. Choose an email option below, then review and send your draft.';
+      emailHeading.focus();
     } else {
+      emailOptions.hidden = true;
       status.textContent = 'WhatsApp will open your enquiry. Review it and send it there.';
       window.location.assign('https://wa.me/' + destination.whatsapp + '?text=' + encodeURIComponent(message));
     }
