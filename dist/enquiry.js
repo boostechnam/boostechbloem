@@ -38,6 +38,9 @@
       'Engine: ' + value('engine'), 'Transmission: ' + value('transmission'),
       'Location: ' + value('location')
     ];
+    form.querySelectorAll('[data-enquiry-label]').forEach(input => {
+      if (value(input.name)) lines.push(input.dataset.enquiryLabel + ': ' + value(input.name));
+    });
     if (value('notes')) lines.push('', 'Additional details: ' + value('notes'));
     const message = lines.join('\n');
     const channel = event.submitter?.value || 'whatsapp';
