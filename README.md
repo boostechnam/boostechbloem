@@ -27,8 +27,9 @@ original source checkout and is not included in the GitHub export.
 
 The article hub is `/news-advice/`, with 11 complete articles adapted from the
 Namibia and Western Cape sites. Header navigation and homepage cards link to it.
-Contact links use Pieter's Bloemfontein details: `boostechbfn@gmail.com` and
-`+27 73 972 7708`.
+Enquiries use a required vehicle form with a free-text location. Visitors choose
+WhatsApp or their email app, review the prepared message, and send it themselves.
+Branch phone numbers and email addresses are not displayed on the pages.
 
 To update article text, edit `content/articles.json` and run:
 
