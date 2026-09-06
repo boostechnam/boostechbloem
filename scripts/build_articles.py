@@ -67,6 +67,6 @@ if '<!-- ARTICLES START -->' in homepage:
 else:
     homepage=homepage.replace('<section id="contact"',feature+'\n<section id="contact"',1)
 (DIST/'index.html').write_text(homepage.rstrip()+'\n')
-urls=['/','/news-advice/']+['/news-advice/'+a['slug']+'/' for a in ARTICLES]
+urls=['/','/news-advice/']+['/'+str(p.parent.relative_to(DIST)).replace('\\','/')+'/' for p in sorted(DIST.glob('*/index.html')) if p.parent.name != 'news-advice']+['/news-advice/'+a['slug']+'/' for a in ARTICLES]
 (DIST/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('  <url><loc>'+ORIGIN+u+'</loc></url>\n' for u in urls)+'</urlset>\n')
 print(f'Built {len(ARTICLES)} articles, article hub, homepage feature and sitemap.')
